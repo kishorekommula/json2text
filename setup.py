@@ -8,7 +8,7 @@ setup(
     name="json2text",
     version=VERSION,
     author="Ashwin Prabhu",
-    license='https://github.com/prabhuar1989/json2text/blob/main/LICENSE',
+    license="MIT",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=LONG_DESCRIPTION,
