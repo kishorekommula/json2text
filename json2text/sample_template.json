@@ -1,0 +1,119 @@
+{
+  "properties": [
+    {
+      "fieldName": "title",
+      "fieldType": "string",
+      "templateType": "joinFieldValue",
+      "template": "This title of this article is {title}. "
+    },
+    {
+      "fieldName": "overview",
+      "fieldType": "string",
+      "templateType": "plainFieldValue"
+    },
+    {
+      "fieldName": "metadata",
+      "fieldType": "object",
+      "templateType": "plainTemplate",
+      "template": " This article is applicable for ",
+      "properties": [
+        {
+          "fieldName": "contentConsumers",
+          "fieldType": "object",
+          "properties": [
+            {
+              "fieldName": "markets",
+              "fieldType": "stringList",
+              "templateType": "joinFunctionValue",
+              "template": "{markets} markets. ",
+              "function": "get_string_list_as_text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fieldName": "contactChannels",
+      "fieldType": "objectList",
+      "elementType": "multiple",
+      "elementIdentifiers": [
+        "telephoneList"
+      ],
+      "properties": [
+        {
+          "elementIdentifier": "telephoneList",
+          "fieldType": "object",
+          "properties": [
+            {
+              "fieldName": "telephoneList",
+              "fieldType": "object",
+              "properties": [
+                {
+                  "fieldName": "additionalInformation",
+                  "fieldType": "object",
+                  "properties": [
+                    {
+                      "fieldName": "content",
+                      "fieldType": "string",
+                      "templateType": "plainFieldValue"
+                    }
+                  ]
+                },
+                {
+                  "fieldName": "channelName",
+                  "fieldType": "string",
+                  "templateType": "joinFieldValue",
+                  "template": "The {channelName} "
+                },
+                {
+                  "fieldName": "type",
+                  "fieldType": "string",
+                  "templateType": "joinFieldValue",
+                  "template": "{type} "
+                },
+                {
+                  "fieldName": "number",
+                  "fieldType": "string",
+                  "templateType": "joinFieldValue",
+                  "template": "phone number for {title} is {number}. "
+                },
+                {
+                  "fieldName": "AllDaysOpeningHours",
+                  "fieldType": "objectList",
+                  "elementType": "single",
+                  "properties": [
+                    {
+                      "fieldName": "openingTime",
+                      "fieldType": "string",
+                      "templateType": "joinFieldValue",
+                      "template": "Opening time is {openingTime} "
+                    },
+                    {
+                      "fieldName": "closingTime",
+                      "fieldType": "string",
+                      "templateType": "joinFieldValue",
+                      "template": "and closing time is {closingTime} "
+                    },
+                    {
+                      "fieldName": "days",
+                      "fieldType": "stringList",
+                      "templateType": "joinFunctionValue",
+                      "template": "on days - {days}",
+                      "function": "get_string_list_as_text"
+                    },
+                    {
+                      "fieldName": "timeZone",
+                      "fieldType": "string",
+                      "templateType": "joinFieldValue",
+                      "template": " in {timeZone} timezone. "
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
